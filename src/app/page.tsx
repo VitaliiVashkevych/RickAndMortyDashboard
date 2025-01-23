@@ -3,10 +3,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCharacters } from "@/redux/reducers";
-
-import { usePathname, useParams } from "next/navigation";
 import Link from "next/link";
-import CharacterInfo from "./character/page";
 
 const getCharacters = async () => {
   const res = await fetch("https://rickandmortyapi.com/api/character");

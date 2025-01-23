@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 const CharacterInfo = () => {
   const characters = useSelector((state: any) => state.characters.characters);
   const searchParams = useSearchParams();
-  const paramsId = searchParams.get("id");
+  const paramsId = searchParams.get("id") as string;
 
-  const selectedChar = characters.filter((char) => char.id === +paramsId)[0];
+  const selectedChar = characters.filter((char: any) => char.id === +paramsId)[0];
 
   return (
     <div>
