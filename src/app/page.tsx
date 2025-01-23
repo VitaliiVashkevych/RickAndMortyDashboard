@@ -4,6 +4,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCharacters } from "@/redux/reducers";
 
+import { usePathname, useParams } from "next/navigation";
+import Link from "next/link";
+import CharacterInfo from "./character/page";
+
 const getCharacters = async () => {
   const res = await fetch("https://rickandmortyapi.com/api/character");
   const data = await res.json();
@@ -24,7 +28,7 @@ const HomePage = () => {
 
   useEffect(() => {
     loadData();
-  }, [dispatch]);
+  }, []);
 
   return (
     <div>
@@ -32,11 +36,10 @@ const HomePage = () => {
       <ul>
         {characters.map((char: any) => (
           <li key={char.id}>
-            <img src={char.image} alt={char.name} />
-            <h2>{char.name}</h2>
-            <p>
-              {char.status} - {char.species}
-            </p>
+            <Link href={`/character?id=${char.id}`}>
+              <img src={char.image} alt={char.name} />
+              <h2>{char.name}</h2>
+            </Link>
           </li>
         ))}
       </ul>
