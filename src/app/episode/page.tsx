@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import "@/app/globals.css";
 
-export const EpisodePage = () => {
+const EpisodePage = () => {
   const searchParams = useSearchParams();
   const paramsId = searchParams.get("id") as string;
   const getEpisode = gql`
