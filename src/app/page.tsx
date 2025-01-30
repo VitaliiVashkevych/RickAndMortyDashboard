@@ -5,6 +5,7 @@ import { gql, useQuery } from "@apollo/client";
 import { flavors } from "./ui/fonts";
 
 import "@/app/globals.css";
+import { Suspense } from "react";
 import { Skeleton } from "./ui/skeletons";
 
 const getCharactersGraph = gql`
@@ -22,7 +23,7 @@ const getCharactersGraph = gql`
 const HomePage = () => {
   const { data, loading, error } = useQuery(getCharactersGraph);
 
-  // if (loading) return <p>Loading...</p>;
+  // if (loading) return <Skeleton />;
   // if (error) return <p>Error : {error.message}</p>;
 
   return (
@@ -32,7 +33,7 @@ const HomePage = () => {
       </h1>
 
       <ul className="grid md:grid-cols-3 gap-x-20 gap-y-12">
-        {loading && Array(9).fill(1).map(() => <Skeleton />)}
+        {loading && <Skeleton />}
         {data?.characters?.results?.map((char: any) => (
           <li key={char.id} className="bg-gray-700 rounded-3xl max-w-[300px]">
             <Link href={`/character?id=${char.id}`}>

@@ -8,9 +8,9 @@
 .skeleton-image {
   max-width: 300px;
   padding-bottom: 100%;
-  background-color: gray;
   box-sizing: border-box;
   border-radius: 24px;
+  background-color: gray;
 }
 
 .skeleton-title {
@@ -20,7 +20,7 @@
   border-radius: 24px;
 }
 .skeleton-content {
-  background-color: #eee;
+  background-color: rgba(55, 65, 81, 1);
   position: relative;
 }
 
