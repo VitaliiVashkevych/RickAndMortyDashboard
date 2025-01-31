@@ -37,7 +37,7 @@ const HomePage = () => {
   };
 
   // if (loading) return <Skeleton />;
-  if (error) return <p>Error : {error.message}</p>;
+  // if (error) return <p>Error : {error.message}</p>;
 
   return (
     <main className="flex flex-col items-center">
